@@ -56,8 +56,7 @@ func (dispatcher Dispatcher) Tunnel(args []string) {
 				log.Info("Mapping local (%s) to remote (%s)", local_address, remote_address)
 				context.AddPushTunnelConfig(context.Ctx.CurrentTermite, local_address, remote_address)
 			case "dynamic":
-				log.Error("TBD")
-				// context.AddDynamicTunnelConfig(context.Ctx.CurrentTermite, local_address, remote_address)
+				context.Ctx.CurrentTermite.StartSocks5Server()
 			case "internet":
 				log.Error("TBD")
 				// context.AddInternetTunnelConfig(context.Ctx.CurrentTermite, local_address, remote_address)
